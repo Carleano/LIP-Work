@@ -10,7 +10,7 @@ def avg_val_pic(img, numtiles,reshape_x,reshape_y): #input img as string
 	
 	imag = Image.open(img)
 	image = sobel(img_as_float(imag))# Applies Sobel filter to image
-	if np.any(image >= 0.9*image) : 0
+	if (image >= 0.9*image).any() : 0
 	tiles = image_slicer.slice(img, numtiles, save=False)# Tiles the images into numtiles
 	strg_arr = np.zeros((numtiles), dtype=np.uint16)  # storage array of zeros
 	
