@@ -5,7 +5,6 @@ def avg_val_pic(img, numtiles,reshape_x,reshape_y): #input img as string
 	import image_slicer
 	from PIL import Image
 	from skimage.filters import sobel
-	from matplotlib import cm
 	
 	
 	imag = Image.open(img)
