@@ -1,3 +1,4 @@
+#show the filtered fits images compared to the original
 from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
@@ -15,24 +16,25 @@ edge_sobel = sobel(image)
 edge_scharr = scharr(image)
 edge_prewitt = prewitt(image)
 
-fig, ax = plt.subplots(ncols=4, sharex=True, sharey=True,
+fig, ax = plt.subplots(nrows=2, ncols=4, sharex=True, sharey=True,
                        figsize=(20, 10))
 
-ax[0].imshow(edge_roberts,vmin=0.1,vmax=3.5,cmap=plt.cm.inferno)
-ax[0].set_title('Roberts Edge Detection')
-
-ax[1].imshow(edge_sobel,vmin=0.1,vmax=3.5, cmap=plt.cm.inferno)
-ax[1].set_title('Sobel Edge Detection')
-
-ax[2].imshow(edge_scharr,vmin=0.1,vmax=3.5, cmap=plt.cm.inferno)
-ax[2].set_title('Scharr Edge Detection')
-
-ax[3].imshow(edge_prewitt,vmin=0.1,vmax=3.5, cmap=plt.cm.inferno)
-ax[3].set_title('Prewitt Edge Detection')
-
-
-for a in ax:
-    a.axis('off')
+ax[1,0].imshow(edge_roberts,vmin=0.1,vmax=3.5,cmap=plt.cm.inferno)
+ax[1,0].set_title('Roberts Edge Detection')
+ax[0,0].imshow(image,vmin=0.1,vmax=3.5,cmap=plt.cm.inferno)
+ax[1,1].imshow(edge_sobel,vmin=0.1,vmax=3.5, cmap=plt.cm.inferno)
+ax[1,1].set_title('Sobel Edge Detection')
+ax[0,1].imshow(image,vmin=0.1,vmax=3.5,cmap=plt.cm.inferno)
+ax[1,2].imshow(edge_scharr,vmin=0.1,vmax=3.5, cmap=plt.cm.inferno)
+ax[1,2].set_title('Scharr Edge Detection')
+ax[0,2].imshow(image,vmin=0.1,vmax=3.5,cmap=plt.cm.inferno)
+ax[1,3].imshow(edge_prewitt,vmin=0.1,vmax=3.5, cmap=plt.cm.inferno)
+ax[1,3].set_title('Prewitt Edge Detection')
+ax[0,3].imshow(image,vmin=0.1,vmax=3.5,cmap=plt.cm.inferno)
+ax[0,3].set_title('Original')
+ax[0,2].set_title('Original')
+ax[0,1].set_title('Original')
+ax[0,0].set_title('Original')
 
 plt.tight_layout()
 plt.show()
