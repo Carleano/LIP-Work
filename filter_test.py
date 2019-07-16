@@ -1,4 +1,4 @@
-#Shows original images and 
+#Shows log Scaled image and those same images Denoised side by side
 import numpy as np
 from astropy.io import fits	
 import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ active_image = fits.getdata('aia.lev1.94A_2012-07-11T01_17_13.13Z.image_lev1.fit
 #Log Scale the images
 log_inct = np.log10(fits.getdata('aia.lev1.94A_2019-06-14T00_00_35.12Z.image_lev1.fits'))
 log_actv = np.log10(fits.getdata('aia.lev1.94A_2012-07-11T01_17_13.13Z.image_lev1.fits'))
-
+#
 Base_10_dnsd = denoise_tv_chambolle(log_actv, weight=50, multichannel=True)
 
 #Setup Subplot figure for images
