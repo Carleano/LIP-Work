@@ -30,7 +30,8 @@ def rebin(arr, new_shape):
     return arr.reshape(shape).mean(-1).mean(1)
 
 new_fltr_image = rebin(fltr_image,(1024,1024))
-
+fig, ax = plt.subplots(ncols=2, sharex=True, sharey=True,
+                       figsize=(20, 10))
 #tl_fltrd_img = Image.fromarray(fltr_image)	
 #tiles = image_slicer.slice(, numtiles, save=False)# Tiles the image into numtiles
 #strg_arr = np.zeros((numtiles), dtype=np.uint16)  # storage array of zeros
@@ -41,8 +42,8 @@ new_fltr_image = rebin(fltr_image,(1024,1024))
 #		strg_arr[f] = pixels 		# sets all values in empty array to mean of the tile
 	
 #strg_arr = strg_arr.reshape(reshape_x, reshape_y)
-#plt.imshow(strg_arr, origin='lower', vmin=strg_arr.std(), vmax=strg_arr.max(), cmap='cividis')	
-plt.imshow(new_fltr_image, origin = 'lower', vmin=0.5,vmax=2.95, cmap='inferno')
+ax[0].imshow(strg_arr, origin='lower', vmin=strg_arr.std(), vmax=strg_arr.max(), cmap='cividis')	
+ax[1].imshow(new_fltr_image, origin = 'lower', vmin=0.5,vmax=2.95, cmap='inferno')
 plt.title('Filtered, Rebinned, Base10 log, and Thresholded')
 plt.show()
 
