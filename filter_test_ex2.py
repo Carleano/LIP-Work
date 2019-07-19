@@ -24,8 +24,6 @@ def rebin(arr, new_shape):
 Rbnd_base_act = rebin(log_actv,(512,512))
 Rbnd_base_inact =  rebin(log_inct,(512,512))
 
-print(Rbnd_base_inact)
-
 #Setup Subplot figure for images
 fig, ax = plt.subplots(nrows=2,ncols=2, 
                        figsize=(20, 10))
