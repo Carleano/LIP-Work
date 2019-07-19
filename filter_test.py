@@ -25,7 +25,7 @@ rbnd_base_10_actv = rebin(base_10_actv,(512,512))
 
 
 #Setup Subplot figure for images
-fig, ax = plt.subplots(ncols=2, sharex=True, sharey=True,
+fig, ax = plt.subplots(ncols=2,
                        figsize=(20, 10))
 
 ax[0].imshow(active_image, origin='lower', vmin=1,vmax=2.95, cmap=plt.cm.inferno)
