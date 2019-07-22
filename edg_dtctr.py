@@ -1,3 +1,4 @@
+#shows original images and sobel filter side by side
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.axes as ax
@@ -27,58 +28,16 @@ img7 = mpimg.imread(img7)
 #List of read images
 images = [img1, img2, img3, img4, img5, img6, img7]
 
-cols = 2
-rows = 7
+cols = 7
+rows = 2
 
 fig, ax = plt.subplots(rows, cols, sharex = True, sharey = True, figsize = (18,9))
 
 for k in range(len(images)):
-#	print(ax[k])*checks what is ax[k] is*
 	edg_fltr = sobel(images[k])
-	ax[k-1,0].imshow(images[k])
-	ax[k,1].imshow(edg_fltr, cmap=plt.cm.gray)
-
-plt.tight_layout()
+	ax[0, k-1].imshow(images[k], cmap=plt.cm.viridis)
+	ax[0, k-1].set_title('Sobel Filtered Images')
+	ax[1,k].imshow(edg_fltr, cmap=plt.cm.viridis)
+	ax[1,k].set_title('Original Images')	
+#plt.tight_layout()
 plt.show()
-#saved as figure_1
-
-
-
-
-
-#for a in ax:
-	##a.axis('off')
-#plt.tight_layout()
-#plt.show()
-
-#mport matplotlib.pyplot as plt
-#import matplotlib.image as mpimg
-
-#image_file = '/home/namurphy/Downloads/sample.png'
-#number_of_images = 3
-
-# The next line is a list comprehension, which is a shorthand way of creating
-# a list.  This line reads in the sample image multiple times, and puts the 
-# results in a list.
-
-# = [mpimg.imread(image_file) for i in range(number_of_images)]
-
-#cols = 2
-#rows = 7
-
-#fig, axes = plt.subplots(rows, cols)
-
-# The enumerate function in the line below tells the loop to go through each
-# item contained within axes, and to have k go from 0 to number_of_images - 1. 
-
-#for k, axis in enumerate(axes):  
-#	print(k,axis)
-#	axis.imshow(images[k])
-#for k, axis in enumerate(axes):
-#	edg_fltr = roberts(images[k]) 
-#	axis.imshow(edg_fltr, cmap=plt.cm.viridis)
-
-			
-		
-#plt.tight_layout()
-#plt.show()
