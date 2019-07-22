@@ -15,7 +15,7 @@ active_image = fits.getdata('aia.lev1.94A_2012-07-11T01_17_13.13Z.image_lev1.fit
 #Log Scale the images
 log_inct = np.log10(inact_image)
 log_actv = np.log10(active_image)
-
+#Rebin Array to new shape that is arr arg is divisible by
 def rebin(arr, new_shape):
 	
     shape = (new_shape[0], arr.shape[0] // new_shape[0],
