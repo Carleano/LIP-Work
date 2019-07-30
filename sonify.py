@@ -1,4 +1,4 @@
-#Sonification of an image
+#Sonification of an image and saves to an indivdual file for each pixel *The triple commented out lines will save all in one big file*
 import numpy as np
 from astropy.io import fits	
 import matplotlib.pyplot as plt 
@@ -30,17 +30,33 @@ log_org = np.divide(log_org,log_org.max())
 framerate = 44100
 t = np.linspace(0,5,framerate*5)
 a_value=0
+
+###scaled_data = np.empty((0, 220500))
+
 #This iterates through each pixel value and plays a volume positively and directly relating to the pixel value
+k = 0
+
 for val in np.nditer(log_org):
-    volume = val
-    data = (np.sin(2*np.pi*220*.01*t)*np.exp(a_value*t)  + np.sin(2*np.pi*224*t)*np.exp(a_value*t))
-    max_data=np.max(data)
-    min_data=np.min(data)
-    if np.abs(min_data) >= max_data:
-        max_data=min_data
-    data=data/max_data
+	k = k + 1
+	volume = val
+	data = (np.sin(2*np.pi*220*.01*t)*np.exp(a_value*t)  + np.sin(2*np.pi*224*t)*np.exp(a_value*t))
+	max_data=np.max(data)
+	min_data=np.min(data)
+	if np.abs(min_data) >= max_data:
+		max_data=np.abs(min_data)
+	data=data/max_data
     #print(volume)
-    scaled_data=volume*data
+    ###scaled_data = np.append(scaled_data, [volume*data], axis = 0)
+	scaled_data = volume * data
     #plt.plot(t,scaled_data)
-    plt.show()
-librosa.output.write_wav('sonified_pixels.wav',scaled_data, sr=framerate, norm=False)#rate=framerate, autoplay=True, normalize=False)
+    #plt.show()
+    
+	librosa.output.write_wav('sonified_pixels_' + str(k) + '.wav', scaled_data, sr=framerate, norm=False)#rate=framerate, autoplay=True, normalize=False)
+###scaled_data = scaled_data.reshape(14112000)
+#librosa.output.write_wav('sonified_pixels.wav', scaled_data, sr=framerate, norm=False)#rate=framerate, autoplay=True, normalize=False)
+
+
+
+
+
+### = long song
