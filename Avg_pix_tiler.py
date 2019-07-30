@@ -1,3 +1,5 @@
+#Alternative way of rebinning image 
+
 def avg_val_pic(img, numtiles,reshape_x,reshape_y): #input your img as file path
 	from skimage import img_as_float
 	import numpy as np
@@ -21,4 +23,3 @@ def avg_val_pic(img, numtiles,reshape_x,reshape_y): #input your img as file path
 	strg_arr = strg_arr.reshape( np.sqrt(numtiles),np.sqrt(numtiles))#reshape_x, reshape_y)
 	plt.imshow(strg_arr, origin='lower', vmin=strg_arr.std(), vmax=strg_arr.max())
 	plt.show()
-avg_val_pic('2019_06_14__00_00_35_12__SDO_AIA_AIA_94.png',9604,98,98)
