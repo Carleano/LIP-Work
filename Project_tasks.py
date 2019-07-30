@@ -1,3 +1,4 @@
+#Rescales image and then normalizes array of pixels from minimun 0 to maximum 1
 import numpy as np
 from astropy.io import fits	
 import matplotlib.pyplot as plt 
