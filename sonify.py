@@ -39,8 +39,8 @@ for val in np.nditer(log_org):
     if np.abs(min_data) >= max_data:
         max_data=min_data
     data=data/max_data
-    print(volume)
+    #print(volume)
     scaled_data=volume*data
-    plt.plot(t,scaled_data)
+    #plt.plot(t,scaled_data)
     plt.show()
 librosa.output.write_wav('sonified_pixels.wav',scaled_data, sr=framerate, norm=False)#rate=framerate, autoplay=True, normalize=False)
