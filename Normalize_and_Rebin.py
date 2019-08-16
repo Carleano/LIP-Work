@@ -21,8 +21,8 @@ log_org = np.divide(log_org,log_org.max())
 
 
 
-plt.figure(figsize = (14,14), tight_layout = True)
-plt.imshow(log_org, origin='lower', vmax=3, cmap=plt.cm.inferno, extent = (0, 8, 0, 8))
-plt.imsave('Fits_pixelated.png', log_org, origin = 'lower', vmax = 3, cmap = plt.cm.inferno)
-plt.show()
+#plt.figure(figsize = (14,14), tight_layout = True)
+#plt.imshow(log_org, origin='lower', vmax=3, cmap=plt.cm.inferno, extent = (0, 8, 0, 8))
+#plt.imsave('Fits_pixelated.png', log_org, origin = 'lower', vmax = 3, cmap = plt.cm.inferno)
+#plt.show()
 
