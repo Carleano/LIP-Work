@@ -14,7 +14,7 @@ def rebin(arr, new_shape):
     shape = (new_shape[0], arr.shape[0] // new_shape[0],
              new_shape[1], arr.shape[1] // new_shape[1])
     return arr.reshape(shape).mean(-1).mean(1)
-log_org = rebin(log_org, (8,8))
+log_org = rebin(log_org, (8,8))#INSERT DESIRED REBIN SIZE HERE
 #Normalize data 
 log_org = np.subtract(-1*log_org,log_org.min())
 log_org = np.divide(log_org,log_org.max())
