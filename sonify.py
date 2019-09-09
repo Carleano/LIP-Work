@@ -1,4 +1,4 @@
-#Sonification of an image and saves to an indivdual file for each pixel *The triple commented out lines will save all in one big file*
+#Sonification of a rebinned image and saves to an indivdual file for each bin *The triple commented out lines will save all in one big file*
 import numpy as np
 from astropy.io import fits	
 import matplotlib.pyplot as plt 
